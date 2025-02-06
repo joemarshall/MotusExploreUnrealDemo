@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class DirectInput : ModuleRules
+public class UExploreWin : ModuleRules
 {
-	public DirectInput(ReadOnlyTargetRules Target) : base(Target)
+	public UExploreWin(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		

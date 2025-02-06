@@ -232,6 +232,7 @@ void FDirectInputDevice::SendControllerEvents()
 
 		for (uint32 Axis = 0; Axis < Joy.GetNumAxes(); Axis++)
 		{
+			if(axis!=1)continue;
 			if (Joy.IsAxisChanged(Axis))
 			{
 				const int32 Value = Joy.GetAxisValue(Axis);
@@ -244,6 +245,7 @@ void FDirectInputDevice::SendControllerEvents()
 		
 		for (uint32 Button = 0; Button < Joy.GetNumButtons(); Button++)
 		{
+			continue;
 			if (Joy.IsButtonChanged(Button))
 			{
 				if (Joy.GetButtonValue(Button))
@@ -261,6 +263,7 @@ void FDirectInputDevice::SendControllerEvents()
 
 		for (uint32 Pov = 0; Pov < Joy.GetNumPovs(); Pov++)
 		{
+			continue;
 			if (Joy.IsPovChanged(Pov))
 			{
 				const uint32 Value = Joy.GetPovValue(Pov);

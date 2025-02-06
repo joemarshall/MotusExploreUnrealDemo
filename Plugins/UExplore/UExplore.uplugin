@@ -2,10 +2,10 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "Windows DirectInput",
-	"Description": "Handle input from DirectInput devices",
+	"FriendlyName": "Motus Explore support for UE",
+	"Description": "Handle input Motus Explore via DirectInput on UE",
 	"Category": "InputDevices",
-	"CreatedBy": "Anders Dahnielson",
+	"CreatedBy": "Joe Marshall, Anders Dahnielson",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
@@ -16,10 +16,15 @@
 	"Installed": true,
 	"Modules": [
 		{
-			"Name": "DirectInput",
+			"Name": "UExploreWin",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"WhitelistPlatforms":["Win64"]
+		},
+		{
+			"Name": "UExploreAndroid",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	]
 }

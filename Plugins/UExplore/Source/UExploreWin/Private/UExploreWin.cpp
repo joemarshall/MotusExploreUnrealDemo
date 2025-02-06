@@ -19,37 +19,37 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#include "DirectInput.h"
+#include "UExploreWin.h"
 #include "DirectInputDevice.h"
 #include "Bindings.h"
 
 #pragma comment (lib, "dinput8.lib")
 #pragma comment (lib, "dxguid.lib")
 
-#define LOCTEXT_NAMESPACE "DirectInputPlugin"
+#define LOCTEXT_NAMESPACE "UExplorePlugin"
 
 IDInputDevice::IDInputDevice(const TSharedRef< FGenericApplicationMessageHandler >& InMessageHandler) :
 	MessageHandler(InMessageHandler)
 {
 };
 
-TSharedPtr<class IInputDevice> FDirectInputModule::CreateInputDevice(const TSharedRef<FGenericApplicationMessageHandler>& InMessageHandler)
+TSharedPtr<class IInputDevice> FUExploreModule::CreateInputDevice(const TSharedRef<FGenericApplicationMessageHandler>& InMessageHandler)
 {
 	DirectInputDevice = MakeShareable(new FDirectInputDevice(InMessageHandler));
 	return DirectInputDevice;
 }
 
-void FDirectInputModule::StartupModule()
+void FUExploreModule::StartupModule()
 {
 	IInputDeviceModule::StartupModule();
 
-	const FName NAME_DirectInput(TEXT("DirectInput"));
+	const FName NAME_DirectInput(TEXT("Motus"));
 
-	EKeys::AddMenuCategoryDisplayInfo(NAME_DirectInput, LOCTEXT("DirectInputSubCateogry", "DirectInput"), TEXT("GraphEditor.KeyEvent_16x"));
+	EKeys::AddMenuCategoryDisplayInfo(NAME_DirectInput, LOCTEXT("MotusSubCategory", "Motus"), TEXT("GraphEditor.KeyEvent_16x"));
 	
-	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis1, LOCTEXT("DirectInput_Axis1", "Axis 1"), FKeyDetails::ButtonAxis, NAME_DirectInput));
-	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis2, LOCTEXT("DirectInput_Axis1", "Axis 2"), FKeyDetails::ButtonAxis, NAME_DirectInput));
-	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis3, LOCTEXT("DirectInput_Axis1", "Axis 3"), FKeyDetails::ButtonAxis, NAME_DirectInput));
+//	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis1, LOCTEXT("DirectInput_Axis1", "Axis 1"), FKeyDetails::ButtonAxis, NAME_DirectInput));
+	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis2, LOCTEXT("Motus_ExploreForward", "ExploreForward"), FKeyDetails::ButtonAxis, NAME_DirectInput));
+/*	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis3, LOCTEXT("DirectInput_Axis1", "Axis 3"), FKeyDetails::ButtonAxis, NAME_DirectInput));
 	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis4, LOCTEXT("DirectInput_Axis1", "Axis 4"), FKeyDetails::ButtonAxis, NAME_DirectInput));
 	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis5, LOCTEXT("DirectInput_Axis1", "Axis 5"), FKeyDetails::ButtonAxis, NAME_DirectInput));
 	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Axis6, LOCTEXT("DirectInput_Axis1", "Axis 6"), FKeyDetails::ButtonAxis, NAME_DirectInput));
@@ -188,12 +188,12 @@ void FDirectInputModule::StartupModule()
 	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Pov1, LOCTEXT("DirectInput_Pov1", "POV 1"), FKeyDetails::Axis1D, NAME_DirectInput));
 	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Pov2, LOCTEXT("DirectInput_Pov1", "POV 2"), FKeyDetails::Axis1D, NAME_DirectInput));
 	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Pov3, LOCTEXT("DirectInput_Pov1", "POV 3"), FKeyDetails::Axis1D, NAME_DirectInput));
-	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Pov4, LOCTEXT("DirectInput_Pov1", "POV 4"), FKeyDetails::Axis1D, NAME_DirectInput));
+	EKeys::AddKey(FKeyDetails(FDirectInputKeys::Pov4, LOCTEXT("DirectInput_Pov1", "POV 4"), FKeyDetails::Axis1D, NAME_DirectInput));*/
 }
 
-void FDirectInputModule::ShutdownModule()
+void FUExploreModule::ShutdownModule()
 {
 	IInputDeviceModule::ShutdownModule();
 }
 
-IMPLEMENT_MODULE(FDirectInputModule, DirectInput)
+IMPLEMENT_MODULE(FUExploreModule, DirectInput)

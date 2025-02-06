@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "DirectInput.h"
+#include "UExploreWin.h"
 
 class FDirectInputDevice : public IDInputDevice
 {

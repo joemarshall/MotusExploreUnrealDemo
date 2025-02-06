@@ -25,34 +25,35 @@
 #include "IInputDevice.h"
 #include "IInputDeviceModule.h"
 
-class IDInputDevice : public IInputDevice
+class IExploreDevice : public IInputDevice
 {
 public:
-	IDInputDevice(const TSharedRef<FGenericApplicationMessageHandler> &InMessageHandler);
-	virtual ~IDInputDevice() override {};
+	IExploreDevice(const TSharedRef<FGenericApplicationMessageHandler> &InMessageHandler):MessageHandler(InMessageHandler)
+	{
+	};
+	virtual ~IExploreDevice() override {};
 	
 protected:
 	TSharedRef<FGenericApplicationMessageHandler> MessageHandler;
 };
 
-class FDirectInputModule : public IInputDeviceModule
+class FUExploreAndroidModule : public IInputDeviceModule
 {
 	virtual TSharedPtr<class IInputDevice> CreateInputDevice(const TSharedRef<FGenericApplicationMessageHandler> &InMessageHandler) override;
-	TSharedPtr<class IDInputDevice> DirectInputDevice;
+	TSharedPtr<class IExploreDevice> ExploreDevice;
 	
 public:
-	TSharedPtr<class IDInputDevice>& GetDirectInputDevice() { return DirectInputDevice; }
 	
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
-	static inline FDirectInputModule& Get()
+	static inline FUExploreAndroidModule& Get()
 	{
-		return FModuleManager::LoadModuleChecked<FDirectInputModule>("DirectInput");
+		return FModuleManager::LoadModuleChecked<FUExploreAndroidModule>("UExploreWin");
 	}
 
 	static inline bool IsAvailable()
 	{
-		return FModuleManager::Get().IsModuleLoaded("DirectInput");
+		return FModuleManager::Get().IsModuleLoaded("UExploreWin");
 	}
 };
