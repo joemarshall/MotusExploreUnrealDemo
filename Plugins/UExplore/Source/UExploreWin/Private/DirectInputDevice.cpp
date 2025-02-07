@@ -232,13 +232,13 @@ void FDirectInputDevice::SendControllerEvents()
 
 		for (uint32 Axis = 0; Axis < Joy.GetNumAxes(); Axis++)
 		{
-			if(axis!=1)continue;
+			if(Axis!=1)continue;
 			if (Joy.IsAxisChanged(Axis))
 			{
 				const int32 Value = Joy.GetAxisValue(Axis);
 				float ValueFloat = Value;
 				ValueFloat/=32768.0;
-				//UE_LOG(LogDirectInputDevice, Log, TEXT("ControllerId %d Axis %d : %f "), ControllerId, Axis+1, ValueFloat);
+				UE_LOG(LogDirectInputDevice, VeryVerbose, TEXT("ControllerId %d Axis %d : %f "), ControllerId, Axis+1, ValueFloat);
 				MessageHandler->OnControllerAnalog(AxisNames[Axis], UserID, DeviceID,ValueFloat);
 			}
 		}

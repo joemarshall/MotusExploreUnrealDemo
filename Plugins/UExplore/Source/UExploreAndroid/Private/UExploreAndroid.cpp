@@ -36,7 +36,7 @@ void FUExploreAndroidModule::StartupModule()
 	const FName NAME_Motus(TEXT("Motus"));
 
 	EKeys::AddMenuCategoryDisplayInfo(NAME_Motus, LOCTEXT("MotusSubCategory", "Motus"), TEXT("GraphEditor.KeyEvent_16x"));	
-	EKeys::AddKey(FKeyDetails(Bindings::Axis2_Key, LOCTEXT("Motus_ExploreForward", "ExploreForward"), FKeyDetails::ButtonAxis, NAME_DirectInput));
+	EKeys::AddKey(FKeyDetails(Bindings::Axis2_Key, LOCTEXT("Motus_ExploreForward", "ExploreForward"), FKeyDetails::ButtonAxis, NAME_Motus));
 }
 
 void FUExploreAndroidModule::ShutdownModule()

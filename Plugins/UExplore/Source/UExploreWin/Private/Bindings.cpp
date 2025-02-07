@@ -23,7 +23,7 @@
 
 // FName
 const FGamepadKeyNames::Type FDirectInputKeyNames::Axis1("DirectInput_Axis1");
-const FGamepadKeyNames::Type FDirectInputKeyNames::Axis2("Motus_Explore");
+const FGamepadKeyNames::Type FDirectInputKeyNames::Axis2("Motus_ExploreForward");
 const FGamepadKeyNames::Type FDirectInputKeyNames::Axis3("DirectInput_Axis3");
 const FGamepadKeyNames::Type FDirectInputKeyNames::Axis4("DirectInput_Axis4");
 const FGamepadKeyNames::Type FDirectInputKeyNames::Axis5("DirectInput_Axis5");

@@ -228,7 +228,7 @@ bool FJoystick::TryAcquireDevice()
 		Available = false;
 		return false;
 	case DIERR_NOTINITIALIZED:
-		UE_LOG(LogJoystick, Error, TEXT("Acquire: Not initialized"));
+//		UE_LOG(LogJoystick, Error, TEXT("Acquire: Not initialized"));
 		Available = false;
 		return false;
 	case DIERR_OTHERAPPHASPRIO:

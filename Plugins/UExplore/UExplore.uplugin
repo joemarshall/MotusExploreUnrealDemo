@@ -24,7 +24,8 @@
 		{
 			"Name": "UExploreAndroid",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms":["Android"]
 		}
 	]
 }
